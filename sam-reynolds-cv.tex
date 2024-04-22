@@ -1,17 +1,16 @@
 \documentclass[12pt]{moderncv}
+\usepackage[margin=2cm]{geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORMAT & THEME
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage[margin=1in]{geometry}
-
+%
 % Theme options
 %     casual (default)
 %     classic
 %     oldstyle
 %     banking
 %     fancy
+%
 % Color schemes
 %     black
 %     blue
@@ -21,6 +20,7 @@
 %     orange
 %     purple
 %     red
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \moderncvtheme{banking}
 \moderncvcolor{purple}
@@ -31,6 +31,12 @@
 
 \usepackage[sorting=ydnt,doi=false,isbn=false,url=false,eprint=false]{biblatex}
 \addbibresource{src/publications.bib}
+
+% Reverse numbering in publications list
+\newcounter{entrycount}
+\AtDataInput{\stepcounter{entrycount}}
+\DeclareFieldFormat{labelnumber}{\mkrevbibnum{#1}}
+\newcommand{\mkrevbibnum}[1]{\number\numexpr\value{entrycount}+1-#1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONTACT
@@ -56,8 +62,8 @@
     \input{src/education.tex}
     \input{src/research-interests.tex}
     \input{src/experience.tex}
-    \input{src/computing-skills.tex}
     \input{src/awards-honors.tex}
     \input{src/publications.tex}
+    \input{src/computing-skills.tex}
     \input{src/additional-info.tex}
 \end{document}
