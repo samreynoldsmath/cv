@@ -30,7 +30,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[sorting=ydnt,doi=false,isbn=false,url=false,eprint=false]{biblatex}
-\addbibresource{publications.bib}
+\addbibresource{src/publications.bib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONTACT
@@ -52,98 +52,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
-\maketitle
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education}
-    \cventry{2024 (Expected)}{Ph.D. in Mathematical Sciences}{Portland State University}{Portland, Oregon, USA}{}{}
-    \cventry{2020}{M.S. in Mathematics}{Portland State University}{Portland, Oregon, USA}{}{}
-    \cventry{2017}{B.S. in Mathematics}{Portland State University}{Portland, Oregon, USA}{Magna cum laude, Departmental honors}{}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RESEARCH INTERESTS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Research Interests}
-    My primary research focus is numerical methods for partial differential equations.
-    Specifically, I am working on a finite element method using nonstandard meshes incorporating cells with curved edges and holes, using ideas from virtual element methods and boundary element methods.
-    I also have experience in numerical optimization and high performance computing.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Positions}
-
-    \subsection{Research positions}
-
-        \cventry{2016--2024}{Research assistant}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}{Portland, Oregon}{}{Advisor: Jeffrey Ovall}
-
-        \cventry{2022}{Computing scholar}{Lawrence Livermore National Laboratory}{Livermore, California}{summer internship}{Mentor: Julian Andej}
-
-        \cventry{2021}{Givens associate}{Argonne National Laboratory}{Chicago, Illinois}{summer internship}{Mentor: Richard Tran Mills}
-
-    \subsection{Education positions}
-
-        \cventry{2019--2020}{Graduate teaching assistant}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}{Portland, Oregon}{}{Supervisor: Andy Flight}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% COMPUTING SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Computing Skills}
-
-    Python, MATLAB, C, C++, Wolfram Mathematica, MS Excel, \LaTeX, git, Linux, MacOS, MS Windows
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% AWARDS AND HONORS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\break
-\section{Awards and Honors}
-
-    \cvline{NSF Research Training Group Graduate Fellowship (2022--2023)}{National Science Foundation}
-
-    \cvline{Excellence in Remote Teaching Award (2020)}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}
-
-    \cvline{Level III (Master) Tutor Certification (2019)}{College Reading \& Learning Association}
-
-    \cvline{F. S. Cater Prize (2019)}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}
-
-    \cvline{Christine and David Vernier STEM Scholarship (2016)}{PSU College of Liberal Arts and Sciences}
-
-    \cvline{Oregon NASA Space Scholarship (2015)}{Oregon Space Grant Consortium}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PUBLICATIONS (see also above)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% using the biblatex package
-\renewbibmacro{in:}{}
-\nocite{*}
-\printbibliography[title={Publications}]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ADDITIONAL INFORMATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Further Information}
-
-    \cvline{Also known as}{Sam Reynolds}
-    \cvline{Pronouns}{he/him/his}
-    \cvline{Country of citizenship}{United States of America}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+    \maketitle
+    \input{src/education.tex}
+    \input{src/research-interests.tex}
+    \input{src/education.tex}
+    \input{src/computing-skills.tex}
+    \input{src/awards-honors.tex}
+    \input{src/publications.tex}
+    \input{src/additional-info.tex}
 \end{document}
