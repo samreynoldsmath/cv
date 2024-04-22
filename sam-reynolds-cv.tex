@@ -1,17 +1,16 @@
-\documentclass[12pt]{moderncv}
+\documentclass[11pt,nolmodern]{moderncv}
+\usepackage[margin=2cm]{geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FORMAT & THEME
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage[margin=1in]{geometry}
-
+%
 % Theme options
 %     casual (default)
 %     classic
 %     oldstyle
 %     banking
 %     fancy
+%
 % Color schemes
 %     black
 %     blue
@@ -21,16 +20,23 @@
 %     orange
 %     purple
 %     red
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\moderncvtheme{banking}
+\moderncvtheme{classic}
 \moderncvcolor{purple}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PUBLICATIONS (see also below)
+% PUBLICATIONS (see also src/publications.tex)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[sorting=ydnt,doi=false,isbn=false,url=false,eprint=false]{biblatex}
-\addbibresource{publications.bib}
+\addbibresource{src/publications.bib}
+
+% Reverse numbering in publications list
+\newcounter{entrycount}
+\AtDataInput{\stepcounter{entrycount}}
+\DeclareFieldFormat{labelnumber}{\mkrevbibnum{#1}}
+\newcommand{\mkrevbibnum}[1]{\number\numexpr\value{entrycount}+1-#1}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CONTACT
@@ -40,7 +46,7 @@
 \familyname{Reynolds}
 
 \phone{971-703-8819}
-\email{ser6@pdx.edu}
+\email{sreyn@proton.me}
 \homepage{sites.google.com/view/samreynolds}
 
 \social[researchgate]{Samuel-Reynolds-4}
@@ -52,98 +58,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
-\maketitle
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education}
-    \cventry{2024 (Expected)}{Ph.D. in Mathematical Sciences}{Portland State University}{Portland, Oregon, USA}{}{}
-    \cventry{2020}{M.S. in Mathematics}{Portland State University}{Portland, Oregon, USA}{}{}
-    \cventry{2017}{B.S. in Mathematics}{Portland State University}{Portland, Oregon, USA}{Magna cum laude, Departmental honors}{}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% RESEARCH INTERESTS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Research Interests}
-    My primary research focus is numerical methods for partial differential equations.
-    Specifically, I am working on a finite element method using nonstandard meshes incorporating cells with curved edges and holes, using ideas from virtual element methods and boundary element methods.
-    I also have experience in numerical optimization and high performance computing.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Positions}
-
-    \subsection{Research positions}
-
-        \cventry{2016--2024}{Research assistant}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}{Portland, Oregon}{}{Advisor: Jeffrey Ovall}
-
-        \cventry{2022}{Computing scholar}{Lawrence Livermore National Laboratory}{Livermore, California}{summer internship}{Mentor: Julian Andej}
-
-        \cventry{2021}{Givens associate}{Argonne National Laboratory}{Chicago, Illinois}{summer internship}{Mentor: Richard Tran Mills}
-
-    \subsection{Education positions}
-
-        \cventry{2019--2020}{Graduate teaching assistant}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}{Portland, Oregon}{}{Supervisor: Andy Flight}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% COMPUTING SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Computing Skills}
-
-    Python, MATLAB, C, C++, Wolfram Mathematica, MS Excel, \LaTeX, git, Linux, MacOS, MS Windows
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% AWARDS AND HONORS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\break
-\section{Awards and Honors}
-
-    \cvline{NSF Research Training Group Graduate Fellowship (2022--2023)}{National Science Foundation}
-
-    \cvline{Excellence in Remote Teaching Award (2020)}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}
-
-    \cvline{Level III (Master) Tutor Certification (2019)}{College Reading \& Learning Association}
-
-    \cvline{F. S. Cater Prize (2019)}{Fariborz Maseeh Dept. of Math. \& Stats., PSU}
-
-    \cvline{Christine and David Vernier STEM Scholarship (2016)}{PSU College of Liberal Arts and Sciences}
-
-    \cvline{Oregon NASA Space Scholarship (2015)}{Oregon Space Grant Consortium}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PUBLICATIONS (see also above)
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% using the biblatex package
-\renewbibmacro{in:}{}
-\nocite{*}
-\printbibliography[title={Publications}]
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ADDITIONAL INFORMATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Further Information}
-
-    \cvline{Also known as}{Sam Reynolds}
-    \cvline{Pronouns}{he/him/his}
-    \cvline{Country of citizenship}{United States of America}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+    \maketitle
+    \setlength{\parskip}{2pt}
+    \input{src/education.tex}
+    \input{src/research-interests.tex}
+    \input{src/experience.tex}
+    \input{src/publications.tex}
+    \input{src/presentations.tex}
+    \input{src/awards-honors.tex}
+    \input{src/computing-skills.tex}
+    \break
+    \input{src/additional-info.tex}
 \end{document}
